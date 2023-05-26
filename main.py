@@ -1,7 +1,11 @@
 import mitsuba as mi
 
-mi.set_variant('scalar_rgb')
+#this sets variant so all uses 'scalar_rgb' for future mi function calls
+mi.set_variant('scalar_rgb') 
 
-img = mi.render(mi.load_dict(mi.cornell_box()))
 
-mi.Bitmap(img).write('cbox.exr')
+scene = mi.load_file("/scenes/cbox.xml")
+
+image = mi.render(scene)
+
+mi.Bitmap(image)
